@@ -3234,6 +3234,11 @@ export interface Nursery {
 	 */
 	noXorAsExponentiation?: NoXorAsExponentiationConfiguration;
 	/**
+	 * Disallow boolean values as keys in YAML.
+	 * See https://biomejs.dev/linter/rules/no-yaml-boolean-keys
+	 */
+	noYamlBooleanKeys?: NoYamlBooleanKeysConfiguration;
+	/**
 	 * Disallow number literals with zero fractions or dangling dots.
 	 * See https://biomejs.dev/linter/rules/no-zero-fractions
 	 */
@@ -5782,6 +5787,9 @@ export type NoVueVTextConfiguration =
 export type NoXorAsExponentiationConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoXorAsExponentiationOptions;
+export type NoYamlBooleanKeysConfiguration =
+	| RulePlainConfiguration
+	| RuleWithNoYamlBooleanKeysOptions;
 export type NoZeroFractionsConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoZeroFractionsOptions;
@@ -8311,6 +8319,10 @@ export interface RuleWithNoXorAsExponentiationOptions {
 	level: RulePlainConfiguration;
 	options?: NoXorAsExponentiationOptions;
 }
+export interface RuleWithNoYamlBooleanKeysOptions {
+	level: RulePlainConfiguration;
+	options?: NoYamlBooleanKeysOptions;
+}
 export interface RuleWithNoZeroFractionsOptions {
 	/**
 	 * Controls the applicability of the rule's fix. `none` suppresses the fix, while `safe` and `unsafe` reclassify its applicability. This setting does not change the fix itself.
@@ -10664,6 +10676,7 @@ export interface NoVueUndeclaredDirectivesOptions {
 export type NoVueVHtmlOptions = {};
 export type NoVueVTextOptions = {};
 export type NoXorAsExponentiationOptions = {};
+export type NoYamlBooleanKeysOptions = {};
 export type NoZeroFractionsOptions = {};
 export type UseAstroClientOnlyDirectiveValueOptions = {};
 export type UseAwaitThenableOptions = {};
@@ -12366,6 +12379,7 @@ export type Category =
 	| "lint/nursery/noVueVOnNumberValues"
 	| "lint/nursery/noVueVText"
 	| "lint/nursery/noXorAsExponentiation"
+	| "lint/nursery/noYamlBooleanKeys"
 	| "lint/nursery/noZeroFractions"
 	| "lint/nursery/useAstroClientOnlyDirectiveValue"
 	| "lint/nursery/useAwaitThenable"
